@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 class bug1:
     def __init__(self):
         self.vel_msg = Twist()
-        self.goal = Point(-2.5,2.5,0)
+        self.goal = Point(6,3,0)
         self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
         self.obstacle_detector = rospy.Subscriber('/scan',LaserScan, self.obstacle_detector)
         self.get_odom = rospy.Subscriber('/odom', Odometry, self.odom_updater )
@@ -59,7 +59,7 @@ class bug1:
         self.ranges = msg.ranges
 
     def hit_an_obstacle(self):
-        if self.ranges[0] < 0.17 or self.ranges[30] < 0.17 or self.ranges[330] < 0.17:
+        if self.ranges[0] < 0.5 or self.ranges[30] < 0.5 or self.ranges[330] < 0.5:
             if self.mode != 2:
                 self.mode = 1
             if self.hit is None:
@@ -73,8 +73,8 @@ class bug1:
         """funct to follow wall boundary
         Turn Right by default or rotate on CCW fashion"""
         print("circum_navi")
-        deg = 30
-        dst = 0.17
+        deg = 50
+        dst = 0.5
         # while True:
         if min(self.ranges[0:deg]) <= dst or min(self.ranges[(359-deg):]) <= dst: # front wall  
             self.vel_msg.angular.z = -0.2
@@ -87,7 +87,7 @@ class bug1:
         #elif abs(dist([self.x,self.y],[self.goal.x,self.goal.y]) - min(self.odom_counter)) < 0.17:
             #self.go2goal()      
         else:
-            self.vel_msg.angular.z = 0.1
+            self.vel_msg.angular.z = 0.17
             self.vel_msg.linear.x = 0.02
             self.cmd_vel_pub.publish(self.vel_msg)       
 
@@ -95,7 +95,7 @@ class bug1:
     def main(self,event):
         r = rospy.Rate(10)
         self.odom_counter = []
-        while dist([self.x,self.y],[self.goal.x, self.goal.y]) > 0.17:            
+        while dist([self.x,self.y],[self.goal.x, self.goal.y]) > 0.5:            
             print(self.mode)            
             if self.mode == 0:
                 self.go2goal()
@@ -104,25 +104,24 @@ class bug1:
                 self.circum_navigate()
                 self.odom_counter.append(dist([self.x,self.y],[self.goal.x,self.goal.y]))
                 if self.hit is not None:
-                    print("inside the instance",self.hit)
+                    print("inside the instance",self.hit,self.old)
                     # if self.in_between(self.hit,Point(self.x,self.y,0.0),self.old): #checks if 1 round is complete
-                    if dist([self.x,self.y],[self.hit.x,self.hit.y]) < 0.5 and rospy.get_time() > self.old + 30:
+                    if dist([self.x,self.y],[self.hit.x,self.hit.y]) < 1.0 and rospy.get_time() > self.old + 30:
                         self.mode = 2  # go to closest point in round 2
                         print("Now its Cycle 2")
             if self.mode == 2:
-                if abs(dist([self.x,self.y],[self.goal.x,self.goal.y]) - min(self.odom_counter)) < 0.17 or self.gotoclst:
+                if abs(dist([self.x,self.y],[self.goal.x,self.goal.y]) - min(self.odom_counter)) < 0.5 or self.gotoclst:
                     self.gotoclst = True
-                    self.go2goal()                                        
+                    self.go2goal()                                       
                 else:
-                    self.circum_navigate()
-                    self.mode = 3
+                    self.circum_navigate()                    
             r.sleep()        
         self.vel_msg.angular.z = 0.0
         self.vel_msg.linear.x = 0.0
-        if  (self.mode == 3):
-            print("Bug1 Fails")
-        else:
-            print("Goal Reached")
+        # if  (self.mode == 3):
+        #     print("Bug1 Fails")
+        # else:
+        #     print("Goal Reached")
         self.cmd_vel_pub.publish(self.vel_msg)
    
 if __name__ == "__main__":
@@ -130,6 +129,5 @@ if __name__ == "__main__":
     rospy.init_node('turtlebot_controller_node')     
     rospy.loginfo('BUGzzzzzzzzzz')      
     bug1()    
-    rospy.spin()   
-
+    rospy.spin()
 

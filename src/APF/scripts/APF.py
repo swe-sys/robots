@@ -89,7 +89,7 @@ class APF():
 if __name__ == '__main__':
     rospy.init_node("APF_Planner")
     start = np.array([-2.,-4])
-    goal = np.array([2.,5.])
+    goal = np.array([2.,4.])
     obstacles = np.array(np.array([[0.,2.],[1.5,0.],[0.,-2.],[-1.5,0.]]))
     apf = APF(start,goal,obstacles)
     r=rospy.Rate(10)
