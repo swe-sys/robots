@@ -53,20 +53,22 @@ rosrun robots script_name.py
 ## Bug1
 In this project, the robot detects the obstacle using its range sensor. When the robots detects an obstacle it first circumnavigate the obstacle, then leave from the shortest distance point to goal to reach its goal position, if path exists `bug1.py`.
 
-[Video](https://youtu.be/z5Rz23LXjug)
+[Video link](https://youtu.be/z5Rz23LXjug)
 
 ## Localization using Kalman Filter
 In this project, three vitual obstacles are used and their positions consists of the trilateration data. The robot is desired to form a circular trajectory where kalman filter `kalman.py` estimates the position of the robot using the measurement data (trilateration data) `trilateration.py`.
 
-[Video](https://youtu.be/P0tuQVYqXrM)
+[Video link](https://youtu.be/P0tuQVYqXrM)
 
 ## APF
 In this project, robot is provided an attractive potential to real the goal position and repulsive potential to avoid the obstacles. Then using gradient descent algorithm the way points is calculated `APF_plain.py`. For the robot to track the calculated waypoints a controller is used `PID_ control.py`.
 
+[Video link](https://youtu.be/V81wMWcY6U8)
+
 ## Swarm Aggregation
 In this project, 5 robots are simulated where different decentralized control laws for the robot in free state or engaged state are used. The robots are required to form two clusters as two goal positions [(4,4,0),(-4,-4,0)] are provided.
 
-[Video](https://youtu.be/jrXQiQKZzQ8)
+[Video link](https://youtu.be/jrXQiQKZzQ8)
 
 ## Contributing
 
