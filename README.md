@@ -72,7 +72,7 @@ In this project, 5 robots are simulated where different decentralized control la
 [Video link](https://youtu.be/jrXQiQKZzQ8)
 
 
-## Contributing
+## Contribution
 
 Any contribution is welcome!! 
 
