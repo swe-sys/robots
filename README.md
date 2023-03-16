@@ -60,7 +60,7 @@ In this project, three vitual obstacles are used and their positions consists of
 In this project, robot is provided an attractive potential to real the goal position and repulsive potential to avoid the obstacles. Then using gradient descent algorithm the way points is calculated `APF_plain.py`. For the robot to track the calculated waypoints a controller is used `PID_ control.py`.
 
 ## Swarm Aggregation
-In this project, 5 robots are provided different decentralized control laws when the robot is in free state or engaged state. 
+In this project, 5 robots are provided different decentralized control laws when the robot is in free state or engaged state. The robots are required to form two clusters as two goal positions are provided.
 
 ## Contributing
 
