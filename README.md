@@ -11,7 +11,7 @@ In this repository, the scripts for some preliminary path planning algorithms su
 - [Localization Using Kalman Filter](#localization-using-kalman-filter)
 - [APF](#apf)
 - [Swarm Aggregation](#swarm-aggregation)
-- [Contributing](#contributing)
+- [Contribution](#contribution)
 - [License](#license)
 
 ## About
@@ -64,11 +64,13 @@ In this project, three vitual obstacles are used and their positions consists of
 In this project, robot is provided an attractive potential to real the goal position and repulsive potential to avoid the obstacles. Then using gradient descent algorithm the way points is calculated `APF_plain.py`. For the robot to track the calculated waypoints a controller is used `PID_ control.py`.
 
 [Video link](https://youtu.be/V81wMWcY6U8)
+For tracking Controller: For more details check this-[Paper link](https://ieeexplore.ieee.org/document/7759231)
 
 ## Swarm Aggregation
 In this project, 5 robots are simulated where different decentralized control laws for the robot in free state or engaged state are used. The robots are required to form two clusters as two goal positions [(4,4,0),(-4,-4,0)] are provided.
 
 [Video link](https://youtu.be/jrXQiQKZzQ8)
+For decentralized control laws: For more details check this- [Paper link](https://ieeexplore.ieee.org/abstract/document/8613876)
 
 ## Contributing
 
