@@ -1,6 +1,6 @@
 # Robots
 
-In this repository, the scripts for some preliminary path planning algorithms such as bug1 and APF along with a multi-agent swarm aggregation simulation  and a SLAM algorithm can be found. 
+In this repository, the scripts for some preliminary path planning algorithms such as bug1 and APF along with a multi-agent swarm aggregation simulation  and a localization algorithm can be found. 
 
 ## Table of Contents
 
