@@ -66,6 +66,8 @@ In this project, robot is provided an attractive potential to real the goal posi
 ## Swarm Aggregation
 In this project, 5 robots are simulated where different decentralized control laws for the robot in free state or engaged state are used. The robots are required to form two clusters as two goal positions [(4,4,0),(-4,-4,0)] are provided.
 
+[Video](https://youtu.be/jrXQiQKZzQ8)
+
 ## Contributing
 
 Any contribution is welcome!! 
