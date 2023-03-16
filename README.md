@@ -53,7 +53,7 @@ rosrun robots script_name.py
 ## Bug1
 In this project, the robot detects the obstacle using its range sensor. When the robots detects an obstacle it first circumnavigate the obstacle, then leave from the shortest distance point to goal to reach its goal position, if path exists `bug1.py`.
 
-[Video link](https://youtu.be/z5Rz23LXjug)
+[Video link](https://youtu.be/wd_Phg3HXcM)
 
 ## Localization using Kalman Filter
 In this project, three vitual obstacles are used and their positions consists of the trilateration data. The robot is desired to form a circular trajectory where kalman filter `kalman.py` estimates the position of the robot using the measurement data (trilateration data) `trilateration.py`.
