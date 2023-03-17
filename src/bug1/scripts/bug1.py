@@ -41,7 +41,7 @@ class bug1:
         rotation_angle = math.atan2((self.goal.y-self.y),(self.goal.x-self.x))
         # print(self.yaw, rotation_angle,"print1")
         if rotation_angle < 0:
-            rotation_angle = rotation_angle + math.pi
+            rotation_angle = rotation_angle + 2*math.pi
         # print(self.yaw, rotation_angle,"print@")
         if abs(self.yaw - rotation_angle) > 0.2:
             self.vel_msg.angular.z = 0.2
